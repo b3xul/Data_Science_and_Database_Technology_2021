@@ -1,0 +1,21 @@
+IMP
+     EMPNO     DEPTNO ENAME      JOB              SAL
+---------- ---------- ---------- --------- ----------
+      7000         10 SMITH      CLERK            950
+      7010         10 SCOTT      ANALYST         1700
+      7020         10 BLAKE      SALESMAN        1500
+      7030         10 SMITH      MANAGER         2600
+      7040         20 SMITH      CLERK            800
+      7050         20 SCOTT      ANALYST         1600
+      7060         30 ADAMS      CLERK            900
+      7070         30 JAMES      CLERK           1000
+      7080         40 ALLEN      CLERK            850
+
+DIP
+    DEPTNO DNAME          LOC                MINSAL     MAXSAL
+---------- -------------- -------------- ---------- ----------
+        10 SALES          NEW YORK              100       2500
+        20 RESEARCH       DALLAS                150       3000
+        30 SALES          CHICAGO               120       2500
+        40 OPERATIONS     BOSTON                200       2100
+

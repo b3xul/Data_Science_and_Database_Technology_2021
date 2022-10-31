@@ -1,0 +1,5 @@
+edizione    codm    sum(numerovoti) sum(sum(numerovoti)) voto_medio=sum(voto)/sum(numerovoti)
+ed1         c1      10              10+20                (3*5+4*5)/(10)=3.5
+ed1         c2      20              10+20                (3*10+4*4+5*6)/(20)=76/20=3.8
+ed2         c1      17              17+12
+ed2         c3      12              17+12

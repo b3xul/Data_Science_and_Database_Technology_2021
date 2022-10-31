@@ -1,0 +1,20 @@
+1. Definisco query tree in algebra relazionale estesa associato alla query
+2. Valuto cardinalità dei nodi ipotizzando distribuzione uniforme dove non diversamente specificato:
+    a. min,max -> selettivitàP= #valori selezionati / #valori distinti
+    b. cardinalità tabella risultato della selezione -> selettività = tuple risultanti / tuple totali
+3. Definisco piano d'esecuzione di default
+4. Valuto (cardinalità+piano d'esecuzione) di altri query tree possibili (cambiare ordine dei join o anticipare GB (push down))
+5. Valuto (cardinalità+piano d'esecuzione) aggiungendo possibili strutture accessorie
+    a. Regole di buon senso:
+        - Chiavi primarie vengono già automaticamente indicizzate dal DBMS
+        - Non si indicizzano tabelle piccole (<10^3) 
+        - Non si indicizzano attributi con selettività bassa (sesso)
+        - Predicati di uguaglianza: hash/B+-Tree, Predicati di range:B+-Tree
+        - Valutare indice primario (clustered) o secondario (unclustered)
+        - Per predicati che coinvolgono più attributi valutare Indice Composito (Prima l'attributo con il predicato più selettivo)
+        - Valutare costo per il mantenimento degli indici
+        - Migliorare join:  Nested Loop con inner table piccola/indicizzata sull'attributo di join
+                            Merge Scan con B+-Tree sull'attributo di join (possibilmente clustered)
+        - Migliorare GB:    Indice sull'attributo di GB
+        
+    b. Valutare selettività, se aiuta nella GB, se è coprente, se meglio primario o secondario

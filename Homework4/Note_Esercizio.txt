@@ -1,0 +1,51 @@
+Note esercizio:
+0. (Sostituite having COUNT(*)>=1 con having COUNT(*)>1. Mantenendo sempre il fattore di riduzione pari a 1/2.)
+    IP: 10^4
+    S:  100
+    SO: 2*10^5
+1. Query interna:
+        a. IP join (Pid) SO, S join(Sid) SO -> Join obbligati (non posso fare join tra IP e S, ma quale faccio prima?)
+            SO-IP, SO-S -> 2*10^5 * 10^3=2*10^8 , 2*10^8 * 10  =2*10^9 NO! Fattore di riduzione! 2*10^5*1/10 , 2*10^4*1/10
+            SO-S, SO-IP -> 2*10^5 * 10  =2*10^6 , 2*10^6 * 10^3=2*10^9                           2*10^5*1/10 , 2*10^4*1/10->Indifferente!
+        b. IP -> filter on REGIONE (20 dist)  S=2/20=1/10
+        c. S -> filter on CATEGORIA (10 dist) S=1/10
+        d. GB su SO.Sid -> POSSO ANTICIPARLO (Indice su SO.Sid? C'è già, chiave primaria)
+                        SO: Pid1    Sid1
+                            Pid1    Sid2
+                            Pid1    Sid3
+                            Pid2    Sid1
+                            Pid2    Sid4
+                            Pid3    Sid1
+
+                        GB(SO.Sid)->    Sid1
+                                        Sid2
+                                        Sid3
+                                        Sid4 -> Riduce dimensione e contiene l'attributo di join e l'attributo che mi serve per la select
+
+                        HAVING COUNT(*)>1-> Sid1 -> Riduce dimensione di 1/2
+2. Query esterna:
+    E: 5*10^7
+    SP: 10^9
+        a. Eid-> E, SP
+           Costo->SP
+           NumeroOre->SP
+        b. SP join (Sid) RESi, SP join (Eid) E -> (non posso fare join tra SP e E, ma quale faccio prima?)
+            SP-RESi, SP-E -> 0-10^8, fattore di riduzione su sid=1/10 quindi da 0-10^7, poi applico fattore di riduzione di edificio (9/10000) 0-9*10^3
+            SP-E, SP-RESi -> 9*10^4, poi 1/10 0-9*10^3  -> meglio questo
+        c. E -> filter on TIPOEDIFICIO (10 dist) S=9/10
+                filter on CITTÀ (1000 dist)      S=1/1000
+        d. SP -> filter on DATA (min 2010, max 2019)-> S=1/10
+        e. GB su SP.Eid -> POSSO ANTICIPARLO MA NON QUANTO VOGLIO, devo prima applicare i predicati su SP.Data e SP.Sid (prima il più selettivo)
+                        SO: Pid1    Eid1    Data1
+                            Pid1    Eid2    Data3
+                            Pid1    Eid3    Data4
+                            Pid2    Eid1    Data2
+                            Pid2    Eid4    Data2
+                            Pid3    Eid1    Data1
+
+                        GB(SO.Eid)->    Eid1
+                                        Eid2
+                                        Eid3
+                                        Eid4 -> Riduce dimensione e contiene l'attributo di join e l'attributo che mi serve per la select
+
+                        HAVING SUM(COSTO)>1000-> Eid1 -> Riduce dimensione di 1/10

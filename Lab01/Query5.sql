@@ -1,0 +1,7 @@
+SELECT MESE, SUM(PREZZO) AS INCASSO_MENSILE, SUM(SUM(PREZZO)) OVER (PARTITION BY EXTRACT(YEAR FROM MESE)
+                                                                    ORDER BY MESE
+                                                                    ROWS UNBOUNDED PRECEDING) AS INCASSO_CUMULATIVO
+FROM TEMPO T, FATTI F
+WHERE T.ID_TEMPO=F.ID_TEMPO
+GROUP BY MESE
+ORDER BY MESE;

@@ -1,0 +1,105 @@
+
+Tree
+node-caps = 'no'
+|   irradiat = 'no'
+|   |   tumor-size = '0-4'
+|   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=4}
+|   |   |   menopause = 'premeno'
+|   |   |   |   age = '30-39': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   age = '40-49': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   tumor-size = '10-14': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=25}
+|   |   tumor-size = '15-19'
+|   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=11}
+|   |   |   menopause = 'lt40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   menopause = 'premeno'
+|   |   |   |   age = '30-39': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=2}
+|   |   |   |   age = '40-49': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   age = '50-59'
+|   |   |   |   |   breast = 'left': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   |   breast = 'right': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   tumor-size = '20-24'
+|   |   |   menopause = 'ge40'
+|   |   |   |   breast = 'left'
+|   |   |   |   |   deg-malig = '1': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   |   deg-malig = '2': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   |   deg-malig = '3': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=5}
+|   |   |   |   breast = 'right': 'recurrence-events' {'recurrence-events'=4, 'no-recurrence-events'=4}
+|   |   |   menopause = 'premeno': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=16}
+|   |   tumor-size = '25-29'
+|   |   |   breast-quad = 'central': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   breast-quad = 'left_low'
+|   |   |   |   breast = 'left': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=8}
+|   |   |   |   breast = 'right'
+|   |   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   |   menopause = 'premeno': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=2}
+|   |   |   breast-quad = 'left_up'
+|   |   |   |   deg-malig = '1': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   deg-malig = '2': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=3}
+|   |   |   |   deg-malig = '3': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=1}
+|   |   |   breast-quad = 'right_low': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=4}
+|   |   |   breast-quad = 'right_up': 'recurrence-events' {'recurrence-events'=4, 'no-recurrence-events'=1}
+|   |   tumor-size = '30-34'
+|   |   |   deg-malig = '1'
+|   |   |   |   breast = 'left': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=6}
+|   |   |   |   breast = 'right'
+|   |   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=4}
+|   |   |   |   |   menopause = 'premeno': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   deg-malig = '2'
+|   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   menopause = 'premeno'
+|   |   |   |   |   breast-quad = 'left_up': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=2}
+|   |   |   |   |   breast-quad = 'right_low': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   deg-malig = '3'
+|   |   |   |   inv-nodes = '0-2': 'no-recurrence-events' {'recurrence-events'=4, 'no-recurrence-events'=7}
+|   |   |   |   inv-nodes = '3-5': 'recurrence-events' {'recurrence-events'=3, 'no-recurrence-events'=0}
+|   |   tumor-size = '35-39'
+|   |   |   breast-quad = 'left_low'
+|   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=2}
+|   |   |   |   menopause = 'premeno': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=1}
+|   |   |   breast-quad = 'left_up'
+|   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   menopause = 'premeno': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   breast-quad = 'right_up': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   tumor-size = '40-44'
+|   |   |   breast-quad = 'left_low': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=2}
+|   |   |   breast-quad = 'left_up': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=5}
+|   |   |   breast-quad = 'right_up': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=3}
+|   |   tumor-size = '5-9': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=3}
+|   |   tumor-size = '50-54'
+|   |   |   breast = 'left': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   breast = 'right': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   irradiat = 'yes'
+|   |   deg-malig = '1': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=2}
+|   |   deg-malig = '2': 'no-recurrence-events' {'recurrence-events'=4, 'no-recurrence-events'=13}
+|   |   deg-malig = '3'
+|   |   |   breast = 'left': 'recurrence-events' {'recurrence-events'=3, 'no-recurrence-events'=0}
+|   |   |   breast = 'right'
+|   |   |   |   age = '30-39': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   |   age = '40-49': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=3}
+|   |   |   |   age = '50-59': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=0}
+|   |   |   |   age = '60-69': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+node-caps = 'yes'
+|   deg-malig = '2'
+|   |   age = '30-39'
+|   |   |   inv-nodes = '3-5': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   inv-nodes = '6-8': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   age = '40-49'
+|   |   |   breast = 'left': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=0}
+|   |   |   breast = 'right': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=4}
+|   |   age = '50-59'
+|   |   |   breast = 'left'
+|   |   |   |   inv-nodes = '0-2': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   inv-nodes = '3-5': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=4}
+|   |   |   |   inv-nodes = '6-8': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   |   breast = 'right'
+|   |   |   |   menopause = 'ge40': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=2}
+|   |   |   |   menopause = 'premeno': 'recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=1}
+|   |   age = '60-69': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=1}
+|   deg-malig = '3'
+|   |   breast = 'left': 'recurrence-events' {'recurrence-events'=16, 'no-recurrence-events'=2}
+|   |   breast = 'right'
+|   |   |   irradiat = 'no': 'recurrence-events' {'recurrence-events'=7, 'no-recurrence-events'=2}
+|   |   |   irradiat = 'yes': 'no-recurrence-events' {'recurrence-events'=0, 'no-recurrence-events'=3}
+node-caps = ?
+|   irradiat = 'no': 'recurrence-events' {'recurrence-events'=2, 'no-recurrence-events'=0}
+|   irradiat = 'yes': 'no-recurrence-events' {'recurrence-events'=1, 'no-recurrence-events'=5}

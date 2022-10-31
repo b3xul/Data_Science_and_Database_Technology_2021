@@ -1,0 +1,6 @@
+edizione citta incasso incassocumulato percentuale_città
+ed1      city1 100     100             100*100/(100+80)
+ed1      city2 80      80              100*80/(100+80)
+ed2      city1 90      100+90
+ed2      city2 30      80+30
+
